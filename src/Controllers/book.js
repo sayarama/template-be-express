@@ -22,7 +22,8 @@ const bookController = {
     },
     _getDetailBuku: async (req, res) => {
         try {
-            const request = await modelBuku.getDetailBuku()
+            const {id} = req.params;
+            const request = await modelBuku.getDetailBuku(id)
 
             res.status(200).json({
                 status: true,
@@ -72,7 +73,33 @@ const bookController = {
             }
         })
     },
-    _addBuku
+    _addBuku: async (req, res) => {
+        try {
+            const {name, author, price, release} = req.body
+
+            const request = await modelBuku.addBuku({
+                name,
+                author,
+                price,
+                release,
+            });
+
+            if (request.length > 0) {
+                res.status(201).json({
+                    status: true,
+                    message: "Insert Data Success",
+                });
+
+                return;
+            }
+        } catch {error} {
+            res.status(502).json({
+                status:false,
+                message: "Insert Data Failed, Something Wrong On Our Server",
+                data:[]
+            });
+        }
+    }
 }
 
 module.exports = bookController;

@@ -1,1 +1,15 @@
-GET http://localhost:3000/book
+# GET http://localhost:3000/book
+
+# GET http://localhost:3000/newbook
+
+GET http://localhost:3000/book/1
+
+# POST https://localhost:3000/book
+# content-type: application/json
+# Authorization: {{$aadV2Token}} 
+# {
+#     "name": "Niji",
+#     "author": "Giring",
+#     "price": "15000",
+#     "release": "2017-11-05"
+# }
