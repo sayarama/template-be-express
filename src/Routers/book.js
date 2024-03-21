@@ -16,4 +16,7 @@ router.post(
     bookController._inputValidation,
     bookController._addBuku
 );
+
+// Delete Buku
+router.delete("/book/:id", bookController._deleteBuku);
 module.exports = router;

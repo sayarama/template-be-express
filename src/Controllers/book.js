@@ -99,6 +99,23 @@ const bookController = {
                 data:[]
             });
         }
+    },
+    _deleteBuku: async (req, res) => {
+        try {
+            const id = Number(req.params.id);
+            const request = await modelBuku.deleteBuku(id);
+            res.status("200").json({
+                status: true,
+                message: "Data Deleted",
+                data: request,
+            })
+        } catch (error) {
+            res.status("502").json({
+                status: false,
+                message: 'something wrong with our server',
+                data:[]
+            })
+        }
     }
 }
 

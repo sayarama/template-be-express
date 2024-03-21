@@ -21,6 +21,11 @@ const modelBuku = {
         const request = await database`INSERT INTO book (name, author, price, release) values (${name}, ${author}, ${price}, ${release}) RETURNING id`;
 
         return request;
+    },
+    deleteBuku: async (id) => {
+        const request = await database`DELETE FROM book WHERE id=${id}`
+
+        return request;
     }
 }
 
