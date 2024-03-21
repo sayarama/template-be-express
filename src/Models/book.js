@@ -6,8 +6,8 @@ const modelBuku = {
 
         return request;
     },
-    getDetailBuku: async () => {
-        const request = await database`SELECT * FROM book WHERE id = ${id}`;
+    getDetailBuku: async (id) => {
+        const request = await database`SELECT * FROM book WHERE id=${id}`;
 
         return request;
     },

@@ -22,7 +22,7 @@ const bookController = {
     },
     _getDetailBuku: async (req, res) => {
         try {
-            const {id} = req.params;
+            const id = Number(req.params.id)
             const request = await modelBuku.getDetailBuku(id)
 
             res.status(200).json({
@@ -57,8 +57,8 @@ const bookController = {
     },
     _inputValidation: async (req, res, next) => {
         const schema = new Validator(req.body, {
-            name: "required|minLength:5|maxLength:100",
-            author: "required|minLength:5|maxLength:50",
+            name: "required|minLength:1|maxLength:100",
+            author: "required|minLength:1|maxLength:50",
         });
 
         schema.check().then((matched) => {

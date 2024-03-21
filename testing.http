@@ -2,7 +2,7 @@
 
 # GET http://localhost:3000/newbook
 
-# GET http://localhost:3000/book/1
+GET http://localhost:3000/book/3
 
 # POST http://localhost:3000/book
 # content-type: application/json
